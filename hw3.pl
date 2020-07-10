@@ -34,14 +34,12 @@ solve(M, L, R, Path) :-
 step([M|MS], [E|ES], _, Akum, Akum) :-
     getAmount([M|MS], 0, MenAmount),
     getAmount([E|ES], 0, EatersAmount),
-    print('Final check'),
     allTransported([M|MS], [E|ES], MenAmount, EatersAmount), !.
 step([M|MS], [E|ES], [B|BS], Akum, R) :-
     (transport2([M|MS], [E|ES], [B|BS], RMen, REaters, RBoatPos);
         transport1([M|MS], [E|ES], [B|BS], RMen, REaters, RBoatPos)),
     isValid(RMen, REaters),
     notMember((RMen, REaters, RBoatPos), Akum),
-    print('Adding step'),
     RAkum = [(RMen, REaters, RBoatPos)|Akum],
     step(RMen, REaters, RBoatPos, RAkum, R), !.
 
