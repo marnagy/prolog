@@ -16,6 +16,12 @@ change(0, [X|XS],R) :-
     X2 is X+1, 
     R = [X2|XS], !.
 change(N, [X|XS], R) :-
+    N > 0,
     N2 is N-1, 
     change(N2, XS, R2),
     R = [X|R2].
+
+maxint(R, R).
+maxint(A, R) :- 
+    A2 is A + 1,
+    maxint(A2, R).

@@ -28,7 +28,6 @@ flat_([X|XS], A, R) :-
     flat_(X, A2, R), !.
 flat_(X, A, R) :- R = [X|A].
 
-
 %
 % b) Implementuje predikát transp(+M, ?R), který transponuje matici M (uloženou
 % jako seznam seznamů). Pokud M není ve správném formátu (např. řádky mají
